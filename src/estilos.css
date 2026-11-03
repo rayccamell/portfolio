@@ -1,0 +1,369 @@
+:root {
+  --fundo: #faf8fc;
+  --superficie: #ffffff;
+  --texto: #2a2630;
+  --suave: #6b6573;
+  --destaque: #7a5bc0;
+  --destaque-forte: #5f42a6;
+  --destaque-claro: #f0eaf9;
+  --rosa-claro: #fce8f1;
+  --texto-no-destaque: #ffffff;
+  --borda: #e9e3f1;
+  --sombra: 0 1px 2px rgba(42, 38, 48, 0.04), 0 8px 24px rgba(122, 91, 192, 0.08);
+  --fonte: 'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #17141b;
+    --superficie: #201c27;
+    --texto: #f1eef5;
+    --suave: #aaa3b5;
+    --destaque: #b9a1f2;
+    --destaque-forte: #cfbcf7;
+    --destaque-claro: #2c2538;
+    --rosa-claro: #3a2430;
+    --texto-no-destaque: #17141b;
+    --borda: #322b3d;
+    --sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--destaque-forte);
+}
+
+a:focus-visible,
+.botao:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+.container {
+  width: min(100% - 2.5rem, 50rem);
+  margin-inline: auto;
+}
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--fundo) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.75rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--texto);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.marca-sigla {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--destaque-forte);
+  background: linear-gradient(135deg, var(--destaque-claro), var(--rosa-claro));
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.menu a {
+  color: var(--suave);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: var(--destaque-forte);
+}
+
+.apresentacao {
+  padding: 5rem 0 3rem;
+}
+
+.apresentacao-grade {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.apresentacao h1 {
+  font-size: clamp(2.4rem, 7vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.apresentacao-cargo {
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--destaque);
+}
+
+.apresentacao-local {
+  font-weight: 600;
+  color: var(--suave);
+}
+
+.apresentacao-texto {
+  max-width: 34rem;
+  margin-top: 0.9rem;
+  color: var(--suave);
+  font-size: 1.08rem;
+}
+
+.monograma {
+  display: grid;
+  place-items: center;
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: 50%;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--destaque-forte);
+  background: linear-gradient(135deg, var(--destaque-claro), var(--rosa-claro));
+  box-shadow: var(--sombra);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.acoes-sem-margem {
+  margin-top: 0;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.8rem;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.botao:hover {
+  transform: translateY(-1px);
+}
+
+.botao-principal {
+  color: var(--texto-no-destaque);
+  background: var(--destaque);
+}
+
+.botao-principal:hover {
+  background: var(--destaque-forte);
+}
+
+.botao-secundario {
+  color: var(--texto);
+  background: var(--superficie);
+  border-color: var(--borda);
+}
+
+.botao-secundario:hover {
+  border-color: var(--destaque);
+}
+
+.secao {
+  padding: 2.5rem 0;
+  scroll-margin-top: 4rem;
+}
+
+.secao h2 {
+  position: relative;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.65rem;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.secao h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--destaque);
+}
+
+.secao-nota {
+  margin: -0.4rem 0 1.25rem;
+  color: var(--suave);
+}
+
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem 1.35rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 1rem;
+  box-shadow: var(--sombra);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.cartao:hover {
+  transform: translateY(-3px);
+  border-color: var(--destaque);
+}
+
+.cartao h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.cartao p {
+  flex: 1;
+  margin: 0.4rem 0 0.9rem;
+  color: var(--suave);
+}
+
+.cartao-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.cartao-link:hover {
+  text-decoration: underline;
+}
+
+.pilulas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pilula {
+  display: inline-block;
+  padding: 0.28rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--destaque-forte);
+  background: var(--destaque-claro);
+}
+
+.pilula-pequena {
+  padding: 0.15rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.rodape {
+  margin-top: 2.5rem;
+  padding: 1.75rem 0 2.5rem;
+  border-top: 1px solid var(--borda);
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 40rem) {
+  .apresentacao {
+    padding-top: 2.5rem;
+  }
+
+  .apresentacao-grade {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .monograma {
+    order: -1;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 1.8rem;
+  }
+
+  .marca-nome {
+    display: none;
+  }
+}
